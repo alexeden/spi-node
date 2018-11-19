@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { Mode, Order, SpiAddon, TransferConfig } from './spi.types';
+import { Mode, Order, SpiAddon } from './spi.types';
 
 // tslint:disable-next-line:no-var-requires
 const SpiAddon: SpiAddon = require('bindings')('spi');
@@ -16,7 +16,7 @@ export class SPI {
     this.fd = fs.openSync(this.devicePath, 'r+');
   }
 
-  get config(): Partial<TransferConfig> {
+  get config() {
     return {
       fd: this.fd,
       speed: this.clockSpeed,
@@ -29,14 +29,7 @@ export class SPI {
     return new Promise<Buffer>((ok, err) => {
       SpiAddon.transfer(
         (error, dataOut) => error ? err(error) : ok(dataOut!),
-        {
-          fd: this.fd,
-          speed: this.clockSpeed,
-          mode: this.dataMode,
-          order: this.bitOrder,
-          dataIn,
-          readcount,
-        }
+        { ...this.config, dataIn, readcount }
       );
     });
   }

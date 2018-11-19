@@ -4,7 +4,8 @@
   "description": "SPI device interaction using Node.js.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rimraf dist && tsc -p src"
+    "build": "rimraf dist && tsc -p src",
+    "prepublish": "tslint --project src"
   },
   "repository": {
     "type": "git",
