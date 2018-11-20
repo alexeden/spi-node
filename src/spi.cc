@@ -5,7 +5,7 @@
 #include <stdexcept>
 
 #include <napi.h>
-#include "utils.cc"
+#include "napi-utils.cc"
 
 #if __linux__
 #include <sys/ioctl.h>
@@ -175,4 +175,4 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
 	return exports;
 }
 
-NODE_API_MODULE(hello, Init)
+NODE_API_MODULE(spi, Init)

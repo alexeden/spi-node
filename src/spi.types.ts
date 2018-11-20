@@ -15,7 +15,12 @@ export enum Order {
   LSB_FIRST = 1,
 }
 
-export type Settings = Record<'mode' | 'order' | 'bitsPerWord' | 'speed', number | null>;
+export type Settings = {
+  mode: Mode | null;
+  order: Order | null;
+  bitPerWord: number | null;
+  speed: number | null;
+};
 
 export interface TransferConfig {
   fd: number;
