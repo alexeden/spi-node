@@ -25,12 +25,12 @@ Not a problem, you can programatically opt-in to using mock data transfers.
 The package exports the following (not including several exported type declarations):
 
 ```
-import { Flags, Mode, Order, SPI } from 'node-spi';
+import { Flags, Mode, Order, SPI } from 'spi-node';
 ```
 
 #### `Flags` Enum
 
-`Flags` is an enum of the underlying [flags used to set an SPI channel's](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface#Clock_polarity_and_phase) mode. You (probably) won't need to `Flags` directly as they're built into the values of `Mode`.
+`Flags` is an enum of the underlying [flags used to set an SPI channel's](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface#Clock_polarity_and_phase) mode. You (probably) won't need to use `Flags` directly as they're built into the values of `Mode`.
 
 ```
 enum Flags {
