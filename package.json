@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Communicate with devices using SPI directly from your Node.js app.",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "engines": {
     "node": ">=8.0.0"
   },
