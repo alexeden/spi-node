@@ -57,20 +57,27 @@ export class SPI implements Settings {
     return this.transfer(Buffer.alloc(0), readcount);
   }
 
-  transfer(dataIn: Buffer, readcount: number = dataIn.length) {
-    return new Promise<Buffer>((ok, err) => {
-      SpiAddon.transfer(
-        (error, dataOut) => error ? err(error) : ok(dataOut!),
-        {
-          fd: this.fd,
-          speed: this.speed,
-          mode: this.mode,
-          order: this.order,
-          dataIn,
-          readcount,
-        }
+  transfer(dataIn: Buffer, readcount: number = dataIn.length): Promise<Buffer> {
+    if (this.transferOverride) {
+      return this.transferOverride(dataIn, readcount);
+    }
+    else {
+      const config = {
+        speed: this.speed,
+        mode: this.mode,
+        order: this.order,
+        fd: this.fd,
+        dataIn,
+        readcount,
+      };
+
+      return new Promise<Buffer>((ok, err) =>
+        SpiAddon.transfer(
+          (error, dataOut) => error ? err(error) : ok(dataOut!),
+          config
+        )
       );
-    });
+    }
   }
 
   close() {
