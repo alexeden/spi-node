@@ -16,26 +16,24 @@ export enum Order {
 }
 
 export type Settings = {
-  mode: Mode | null;
-  order: Order | null;
-  bitPerWord: number | null;
-  speed: number | null;
+  mode: Mode;
+  order: Order;
+  speed: number;
 };
 
-export interface TransferConfig {
+export interface TransferConfig extends Settings {
   fd: number;
-  speed: number;
-  mode: number;
-  order: number;
   dataIn: Buffer;
   readcount: number;
 }
+
+export type TransferFunction = (dataIn: Buffer, readcount: number) => Promise<Buffer>;
 
 export type TransferCallback = (error: Error | null, dataOut: Buffer | null) => void;
 
 export interface SpiAddon {
   modes: { [mode: string]: number };
   spiSupported: boolean;
-  readSpiSettings(fd: number): Settings;
+  // readSpiSettings(fd: number): Settings;
   transfer(cb: TransferCallback, config: TransferConfig): void;
 }
