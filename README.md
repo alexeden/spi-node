@@ -82,7 +82,9 @@ enum Order {
 
 > **The default `order` of an `SPI` instance is `Order.MSB_FIRST`.**
 
-## `SPI` Class [TODO]
+## `SPI` Class
+
+[TODO: Add descriptions]
 
 ### Static properties & constructors
 
@@ -146,7 +148,7 @@ enum Order {
 All of the properties of an `SPI` instance can be set using chainable setter methods, allowing you to instantiate and configure an `SPI` connection in one go:
 
 ```
-const spi = SPI.fromDevicePath('/dev/spidev0.0)
+const spi = SPI.fromDevicePath('/dev/spidev0.0')
   .setMode(Mode.M0)
   .setOrder(Order.MSB_FIRST)
   .setSpeed(1e7)

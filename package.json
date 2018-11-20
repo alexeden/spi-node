@@ -31,7 +31,9 @@
     "rpi",
     "beaglebone",
     "dotstar",
-    "mcp3008"
+    "mcp3008",
+    "n-api",
+    "napi"
   ],
   "dependencies": {
     "bindings": "^1.3.0",
