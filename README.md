@@ -22,7 +22,7 @@ Not a problem, you can programatically opt-in to using mock data transfers by ov
 
 [TODO: Add MCP3008 example]
 
-## API
+# API
 
 The `spi-node` package exports the following:
 
@@ -40,7 +40,7 @@ import {
 } from 'spi-node';
 ```
 
-### `Flags` Enum
+## `Flags` Enum
 
 `Flags` is an enum of the underlying [flags used to set an SPI channel's](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface#Clock_polarity_and_phase) mode. You (probably) won't need to use `Flags` directly as they're built into the values of `Mode`.
 
@@ -54,7 +54,7 @@ enum Flags {
 - `Flags.CPOL`: If set, sets clock polarity such that the leading edge of the clock cycle is a falling edge.
 - `Flags.CPHA`: If set, data is read on the leading edge of the clock cycle.
 
-### `Mode` Enum
+## `Mode` Enum
 
 `Mode` is an enum of the [four possible SPI modes](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface#Mode_numbers), which are just permutations of the `Flags`.
 
@@ -69,7 +69,7 @@ enum Mode {
 
 > **The default `mode` of an `SPI` instance is `Mode.M0`.**
 
-### `Order` Enum
+## `Order` Enum
 
 `Order` is an enum whose values set the bit order of data transferred over an SPI connection.
 
@@ -82,19 +82,19 @@ enum Order {
 
 > **The default `order` of an `SPI` instance is `Order.MSB_FIRST`.**
 
-### `SPI` Class [TODO]
+## `SPI` Class [TODO]
 
-#### Static properties & constructors
+### Static properties & constructors
 
-#### `SPI.spiSupported: boolean`
-
-...
-
-#### Constructor `SPI.fromDevicePath(path: string)`
+##### Property `SPI.spiSupported: boolean`
 
 ...
 
-#### Constructor `SPI.fromFileDescriptor(fd: number)`
+##### Constructor `SPI.fromDevicePath(path: string)`
+
+...
+
+##### Constructor `SPI.fromFileDescriptor(fd: number)`
 
 ...
 
@@ -102,23 +102,23 @@ enum Order {
 
 ### Properties
 
-#### `mode: Mode`
+##### `mode: Mode`
 
 ...
 
-#### `speed: number`
+##### `speed: number`
 
 ...
 
-#### `order: Order`
+##### `order: Order`
 
 ...
 
-#### `mode: Mode`
+##### `mode: Mode`
 
 ...
 
-#### `transferOverride: TransferFunction | null`
+##### `transferOverride: TransferFunction | null`
 
 ...
 
@@ -126,20 +126,20 @@ enum Order {
 
 ### Methods
 
-#### `write(dataIn: Buffer): Promise<Buffer>`
+##### `write(dataIn: Buffer): Promise<Buffer>`
 
 ...
 
-#### `read(readcount: number): Promise<Buffer>`
+##### `read(readcount: number): Promise<Buffer>`
 
 ...
 
-#### `transfer(dataIn: Buffer, readcount: number): Promise<Buffer>`
+##### `transfer(dataIn: Buffer, readcount: number): Promise<Buffer>`
 
 ...
 
 
-#### `close(): void`
+##### `close(): void`
 
 ...
 
