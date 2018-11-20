@@ -106,15 +106,11 @@ enum Order {
 
 ...
 
-##### `speed: number`
-
-...
-
 ##### `order: Order`
 
 ...
 
-##### `mode: Mode`
+##### `speed: number`
 
 ...
 
