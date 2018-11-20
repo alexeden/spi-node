@@ -3,20 +3,35 @@
   "version": "1.0.0",
   "description": "SPI device interaction using Node.js.",
   "main": "dist/index.js",
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "scripts": {
     "build": "rimraf dist && tsc -p src",
-    "prepublish": "tslint --project src"
+    "install": "node-gyp rebuild",
+    "lint": "tslint --project src"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexeden/spi-node.git"
   },
   "author": "Alex Eden",
-  "license": "ISC",
+  "license": "MITNFA",
   "bugs": {
     "url": "https://github.com/alexeden/spi-node/issues"
   },
   "homepage": "https://github.com/alexeden/spi-node#readme",
+  "keywords": [
+    "spi",
+    "iot",
+    "raspberry",
+    "sensors",
+    "pi",
+    "rpi",
+    "beaglebone",
+    "dotstar",
+    "mcp3008"
+  ],
   "dependencies": {
     "bindings": "^1.3.0",
     "node-addon-api": "^1.6.1"
