@@ -17,9 +17,9 @@
 	#pragma GCC diagnostic ignored "-Wunused-private-field"
 	#pragma GCC diagnostic ignored "-Wunused-variable"
 	#ifdef __GNUC__
-		#warning "Building without SPI support"
+		#warning "SPI not supported on this machine"
 	#elif
-		#pragma message("Building without SPI support")
+		#pragma message("SPI not supported on this machine")
 	#endif
 
 	// Define an SPI support flag

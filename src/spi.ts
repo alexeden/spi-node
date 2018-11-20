@@ -11,7 +11,7 @@ export class SPI {
   private fd: number;
 
   @constraints(x => Object.values(Mode).includes(x))
-  mode: Mode = 0;
+  mode: Mode = Mode.M0;
 
   @constraints(Number.isSafeInteger, x => x > 0)
   speed = 4e6;
