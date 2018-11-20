@@ -1,7 +1,5 @@
-type Constraint = <T>(x: T) => boolean;
-
-export function constraints(...fns: Constraint[]) {
-  return <T>(target: {}, propertyName: keyof T): void => {
+export function constraints(...fns: Array<(x: any) => boolean>): PropertyDecorator {
+  return (target: {}, propertyName: string): void => {
     let value: any;
 
     Object.defineProperty(target, propertyName, {
@@ -12,7 +10,10 @@ export function constraints(...fns: Constraint[]) {
         if (fns.every(fn => fn(newValue))) {
           value = newValue;
         }
+        else {
+          console.warn(`Constraints prevented "${propertyName}" from being set to ${newValue}`);
+        }
       },
     });
   };
-};
+}
