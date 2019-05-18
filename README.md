@@ -1,3 +1,5 @@
+![npm version](https://img.shields.io/npm/v/spi-node.svg?style=for-the-badge&logo=npm&color=c41949)
+
 # spi-node
 
 Communicate with devices using [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) directly from your Node.js app. Data transfers are executed asynchronously in their own thread. Supports mock data transfers on machines without SPI support for easy local development. Uses Node's now-stable [N-API](https://nodejs.org/dist/latest-v10.x/docs/api/n-api.html#n_api_n_api) for native addon support. Written in Typescript.
