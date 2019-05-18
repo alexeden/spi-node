@@ -1,6 +1,6 @@
 {
   "name": "spi-node",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Communicate with devices using SPI directly from your Node.js app.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,6 +8,7 @@
     "node": ">=8.0.0"
   },
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "rimraf dist && tsc -p src",
     "install": "node-gyp rebuild",
     "lint": "tslint --project src"
@@ -36,8 +37,8 @@
     "napi"
   ],
   "dependencies": {
-    "bindings": "^1.3.0",
-    "node-addon-api": "^1.6.1"
+    "bindings": "^1.5.0",
+    "node-addon-api": "^1.6.2"
   },
   "devDependencies": {
     "@types/node": "^10.12.9",
