@@ -4,10 +4,10 @@ export enum Flags {
 }
 
 export enum Mode {
-  M0 =	0 | 0,
-  M1 =	0 | Flags.CPHA,
-  M2 =	Flags.CPOL | 0,
-  M3 =	Flags.CPOL | Flags.CPHA,
+  M0 = 0 | 0,
+  M1 = 0 | Flags.CPHA,
+  M2 = Flags.CPOL | 0,
+  M3 = Flags.CPOL | Flags.CPHA,
 }
 
 export enum Order {
@@ -27,9 +27,15 @@ export interface TransferConfig extends Settings {
   readcount: number;
 }
 
-export type TransferFunction = (dataIn: Buffer, readcount: number) => Promise<Buffer>;
+export type TransferFunction = (
+  dataIn: Buffer,
+  readcount: number,
+) => Promise<Buffer>;
 
-export type TransferCallback = (error: Error | null, dataOut: Buffer | null) => void;
+export type TransferCallback = (
+  error: Error | null,
+  dataOut: Buffer | null,
+) => void;
 
 export interface SpiAddon {
   modes: { [mode: string]: number };

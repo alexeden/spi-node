@@ -1,4 +1,6 @@
-export function constraints(...fns: Array<(x: any) => boolean>): PropertyDecorator {
+export function constraints(
+  ...fns: Array<(x: any) => boolean>
+): PropertyDecorator {
   return (target: {}, propertyName: string): void => {
     let value: any;
 
@@ -7,11 +9,12 @@ export function constraints(...fns: Array<(x: any) => boolean>): PropertyDecorat
         return value;
       },
       set(newValue: any) {
-        if (fns.every(fn => fn(newValue))) {
+        if (fns.every((fn) => fn(newValue))) {
           value = newValue;
-        }
-        else {
-          console.warn(`Constraints prevented "${propertyName}" from being set to ${newValue}`);
+        } else {
+          console.warn(
+            `Constraints prevented "${propertyName}" from being set to ${newValue}`,
+          );
         }
       },
     });
