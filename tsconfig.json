@@ -23,6 +23,6 @@
     "types": [
       "node"
     ],
-    "target": "esnext"
+    "target": "es2015"
   }
 }
