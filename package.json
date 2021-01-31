@@ -1,6 +1,6 @@
 {
   "name": "spi-node",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Communicate with devices using SPI directly from Node.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
