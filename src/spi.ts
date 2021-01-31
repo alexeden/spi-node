@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import { Mode, Order, SpiAddon, Settings, TransferFunction } from './spi.types';
 import { constraints } from './utils';
 
-// tslint:disable-next-line:no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const SpiAddon: SpiAddon = require('bindings')('spi');
 
 export class SPI implements Settings {
@@ -17,29 +17,33 @@ export class SPI implements Settings {
     return new SPI(fd);
   }
 
-  @constraints((x) => Object.values(Mode).includes(x))
+  @constraints<Mode>((x) => Object.values(Mode).includes(x))
   mode: Mode = Mode.M0;
+
   setMode(mode: Mode) {
     this.mode = mode;
     return this;
   }
 
-  @constraints(Number.isSafeInteger, (x) => x > 0)
+  @constraints<number>(Number.isSafeInteger, (x) => x > 0)
   speed = 4e6;
+
   setSpeed(speed: number) {
     this.speed = speed;
     return this;
   }
 
-  @constraints((x) => Object.values(Order).includes(x))
-  order: Order = Order.MSB_FIRST;
+  @constraints<Order>((x) => Object.values(Order).includes(x))
+  order = Order.MSB_FIRST;
+
   setOrder(order: Order) {
     this.order = order;
     return this;
   }
 
-  @constraints((x) => x === null || typeof x === 'function')
+  @constraints<TransferFunction | null>((x) => x === null || typeof x === 'function')
   transferOverride: TransferFunction | null = null;
+
   setTransferOverride(txFn: TransferFunction) {
     this.transferOverride = txFn;
     return this;
@@ -70,7 +74,7 @@ export class SPI implements Settings {
 
       return new Promise<Buffer>((ok, err) =>
         SpiAddon.transfer(
-          (error, dataOut) => (error ? err(error) : ok(dataOut!)),
+          (error, dataOut) => (error ? err(error) : ok(dataOut ?? Buffer.of())),
           config,
         ),
       );

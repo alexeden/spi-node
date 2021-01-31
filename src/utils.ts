@@ -1,14 +1,14 @@
-export function constraints(
-  ...fns: Array<(x: any) => boolean>
+export function constraints<T>(
+  ...fns: Array<(x: T) => boolean>
 ): PropertyDecorator {
-  return (target: {}, propertyName: string): void => {
-    let value: any;
+  return (target: Record<string, unknown>, propertyName: string): void => {
+    let value: T;
 
     Object.defineProperty(target, propertyName, {
       get() {
         return value;
       },
-      set(newValue: any) {
+      set(newValue: T) {
         if (fns.every((fn) => fn(newValue))) {
           value = newValue;
         } else {
