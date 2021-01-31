@@ -1,4 +1,7 @@
-![npm version](https://img.shields.io/npm/v/spi-node.svg?style=for-the-badge&logo=npm&color=c41949)
+![npm version](https://img.shields.io/npm/v/spi-node/latest?style=for-the-badge)
+![npm version](https://img.shields.io/npm/types/spi-node?style=for-the-badge)
+![npm version](https://img.shields.io/librariesio/release/npm/spi-node?style=for-the-badge&logoColor=white)
+![npm version](https://img.shields.io/node/v/spi-node?style=for-the-badge&logo=node.js&logoColor=white)
 
 # spi-node
 
