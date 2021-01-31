@@ -1,7 +1,7 @@
 export function constraints<T>(
   ...fns: Array<(x: T) => boolean>
 ): PropertyDecorator {
-  return (target: Record<string, unknown>, propertyName: string): void => {
+  return (target, propertyName): void => {
     let value: T;
 
     Object.defineProperty(target, propertyName, {
@@ -13,7 +13,7 @@ export function constraints<T>(
           value = newValue;
         } else {
           console.warn(
-            `Constraints prevented "${propertyName}" from being set to ${newValue}`,
+            `Constraints prevented "${String(propertyName)}" from being set to ${newValue}`,
           );
         }
       },

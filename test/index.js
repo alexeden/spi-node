@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { SPI } = require('../dist');
 
 const spi = new SPI();
