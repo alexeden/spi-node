@@ -39,3 +39,4 @@ sync.config.json
 sshpi
 /build
 .vscode
+.npmrc
