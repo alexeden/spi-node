@@ -102,7 +102,7 @@ public:
 
 	void OnOK() {
 		Napi::HandleScope scope(Env());
-		Napi::Buffer<u_int8_t> dataOut = Napi::Buffer<uint8_t>::New(scope.Env(), buffer, buflen);
+		Napi::Buffer<u_int8_t> dataOut = Napi::Buffer<uint8_t>::Copy(scope.Env(), buffer, buflen);
 		Callback().Call({ scope.Env().Null(), dataOut });
 	}
 
